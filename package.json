@@ -1,1 +1,1 @@
-{"name":"xmrt-ecosystem-v2","version":"2.0.0","author":"Joseph Andrew Lee <joseph@xmrt.io>","license":"MIT","private":true,"workspaces":["apps/web/frontend"],"scripts":{"build":"cd apps/web/frontend && npm run build","dev":"cd apps/web/frontend && npm run dev","vercel-build":"cd apps/web/frontend && npm ci && npm run build"},"engines":{"node":"18.x"}}
+{"name":"xmrt-ecosystem-v2","version":"2.0.0","scripts":{"build":"npm run build --workspace=frontend","dev":"npm run dev --workspace=frontend"},"workspaces":["frontend"],"engines":{"node":"18.x"}}
