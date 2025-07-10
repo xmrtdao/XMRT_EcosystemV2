@@ -1,0 +1,1 @@
+{"name":"xmrt-ecosystem-v2","version":"2.0.0","author":"Joseph Andrew Lee <joseph@xmrt.io>","license":"MIT","workspaces":["apps/*","packages/*"],"scripts":{"build":"echo Building XMRT...","dev":"echo Starting XMRT..."}}
