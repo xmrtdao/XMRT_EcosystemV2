@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XMRT Ecosystem - Complete Documentation</title>
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', serif;
+        line-height: 1.6;
+        color: #000;
+        background: #fff;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 32px;
+        page-break-after: avoid;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 32px;
+        margin-bottom: 16px;
+        page-break-after: avoid;
+      }
+
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 24px;
+        margin-bottom: 12px;
+        page-break-after: avoid;
+      }
+
+      h4 {
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        page-break-after: avoid;
+      }
+
+      p {
+        margin-bottom: 12px;
+        text-align: justify;
+      }
+
+      ul,
+      ol {
+        margin-bottom: 12px;
+        padding-left: 24px;
+      }
+
+      li {
+        margin-bottom: 6px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 16px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+      }
+
+      code {
+        font-family: 'Courier New', monospace;
+        background-color: #f5f5f5;
+        padding: 2px 4px;
+        border: 1px solid #ddd;
+      }
+
+      pre {
+        font-family: 'Courier New', monospace;
+        background-color: #f5f5f5;
+        padding: 12px;
+        border: 1px solid #ddd;
+        margin: 12px 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .section-break {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>XMRT Ecosystem</h1>
+    <p class="center"><strong>Complete Technical and Business Documentation</strong></p>
+    <p class="center">Version 1.0 - July 2025</p>
+    <p class="center">Author: Joe - XMRT Development Team</p>
+
+    <h2>Table of Contents</h2>
+    <ol>
+      <li>Executive Summary</li>
+      <li>System Architecture Overview</li>
+      <li>Core Components</li>
+      <li>Technical Implementation</li>
+      <li>Smart Contract Architecture</li>
+      <li>Web3 Frontend Integration</li>
+      <li>Security Framework</li>
+      <li>Deployment Guide</li>
+      <li>Testing and Quality Assurance</li>
+      <li>Future Roadmap</li>
+      <li>Support and Maintenance</li>
+    </ol>
+
+    <h2>1. Executive Summary</h2>
+    <p>
+      The XMRT Ecosystem represents a comprehensive blockchain-based financial platform built on the Ethereum Sepolia
+      testnet. Our ecosystem combines decentralized finance (DeFi) capabilities with advanced privacy features, creating
+      a secure and transparent platform for digital asset management and staking.
+    </p>
+
+    <p>
+      The platform consists of three primary components: the XMRT Token Smart Contract, a user-friendly Web3 frontend
+      application, and a robust faucet system for token distribution. Together, these components provide users with
+      seamless access to staking rewards, token management, and decentralized financial services.
+    </p>
+
+    <p>
+      Key features include 12% annual percentage yield (APY) staking rewards, MetaMask integration for wallet
+      connectivity, real-time blockchain interaction, and a comprehensive governance system designed to prevent rug
+      pulls and ensure long-term sustainability.
+    </p>
+
+    <h2>2. System Architecture Overview</h2>
+    <p>
+      The XMRT ecosystem follows a modular architecture pattern, separating concerns between blockchain operations, user
+      interface, and business logic. This design ensures scalability, maintainability, and security across all system
+      components.
+    </p>
+
+    <h3>2.1 High-Level Architecture</h3>
+    <p>The system architecture consists of four primary layers:</p>
+    <ul>
+      <li><strong>Blockchain Layer:</strong> Ethereum Sepolia testnet hosting smart contracts</li>
+      <li><strong>Smart Contract Layer:</strong> XMRT Token and Faucet contracts</li>
+      <li><strong>Web3 Integration Layer:</strong> Ethers.js and MetaMask connectivity</li>
+      <li><strong>User Interface Layer:</strong> React-based frontend application</li>
+    </ul>
+
+    <h3>2.2 Data Flow</h3>
+    <p>
+      User interactions flow through the Web3 integration layer, which handles wallet connections, transaction signing,
+      and smart contract communication. All blockchain state changes are reflected in real-time through event listeners
+      and periodic balance updates.
+    </p>
+
+    <h2>3. Core Components</h2>
+
+    <h3>3.1 XMRT Token Smart Contract</h3>
+    <p>
+      The XMRT Token Smart Contract serves as the foundation of the ecosystem, implementing both standard ERC-20
+      functionality and advanced staking mechanisms.
+    </p>
+
+    <h4>Contract Address and Details</h4>
+    <ul>
+      <li><strong>Contract Address:</strong> 0x77307DFbc436224d5e6f2048d2b6bDfA66998a15</li>
+      <li><strong>Network:</strong> Sepolia Testnet</li>
+      <li><strong>Standard:</strong> ERC-20 with staking extensions</li>
+      <li><strong>Total Supply:</strong> Configurable via smart contract</li>
+    </ul>
+
+    <h4>Core Functions</h4>
+    <table>
+      <tr>
+        <th>Function</th>
+        <th>Description</th>
+        <th>Parameters</th>
+      </tr>
+      <tr>
+        <td>balanceOf</td>
+        <td>Returns token balance for an address</td>
+        <td>address owner</td>
+      </tr>
+      <tr>
+        <td>transfer</td>
+        <td>Transfers tokens to specified address</td>
+        <td>address to, uint256 amount</td>
+      </tr>
+      <tr>
+        <td>stake</td>
+        <td>Stakes tokens for rewards</td>
+        <td>uint256 amount</td>
+      </tr>
+      <tr>
+        <td>unstake</td>
+        <td>Unstakes tokens and claims rewards</td>
+        <td>uint256 amount</td>
+      </tr>
+      <tr>
+        <td>getStaked</td>
+        <td>Returns staked amount for an address</td>
+        <td>address account</td>
+      </tr>
+      <tr>
+        <td>getRewards</td>
+        <td>Returns pending rewards for an address</td>
+        <td>address account</td>
+      </tr>
+      <tr>
+        <td>claimRewards</td>
+        <td>Claims pending staking rewards</td>
+        <td>None</td>
+      </tr>
+    </table>
+
+    <h3>3.2 Faucet Smart Contract</h3>
+    <p>The Faucet Contract manages token distribution to users with built-in rate limiting and security measures.</p>
+
+    <h4>Faucet Features</h4>
+    <ul>
+      <li><strong>Claim Amount:</strong> 1000 XMRT tokens per claim</li>
+      <li><strong>Cooldown Period:</strong> 24 hours between claims</li>
+      <li><strong>Rate Limiting:</strong> One claim per address per day</li>
+      <li><strong>Administrative Controls:</strong> Contract owner can modify parameters</li>
+    </ul>
+
+    <h4>Faucet Functions</h4>
+    <table>
+      <tr>
+        <th>Function</th>
+        <th>Description</th>
+        <th>Access Level</th>
+      </tr>
+      <tr>
+        <td>claimTokens</td>
+        <td>Claims tokens if cooldown period has passed</td>
+        <td>Public</td>
+      </tr>
+      <tr>
+        <td>getLastClaimTime</td>
+        <td>Returns timestamp of last claim for user</td>
+        <td>Public</td>
+      </tr>
+      <tr>
+        <td>canClaim</td>
+        <td>Checks if user can claim tokens</td>
+        <td>Public</td>
+      </tr>
+      <tr>
+        <td>CLAIM_AMOUNT</td>
+        <td>Returns amount of tokens per claim</td>
+        <td>Public</td>
+      </tr>
+      <tr>
+        <td>CLAIM_COOLDOWN</td>
+        <td>Returns cooldown period in seconds</td>
+        <td>Public</td>
+      </tr>
+    </table>
+
+    <h2>4. Technical Implementation</h2>
+
+    <h3>4.1 Frontend Technology Stack</h3>
+    <p>The XMRT frontend application utilizes modern web technologies to provide a seamless user experience:</p>
+
+    <ul>
+      <li><strong>React 18.2.0:</strong> Component-based UI framework</li>
+      <li><strong>Ethers.js 6.8.0:</strong> Web3 library for blockchain interaction</li>
+      <li><strong>React Router 6.22.3:</strong> Client-side routing</li>
+      <li><strong>Tailwind CSS 3.4.1:</strong> Utility-first CSS framework</li>
+      <li><strong>Vite 5.1.6:</strong> Build tool and development server</li>
+      <li><strong>MetaMask Detect Provider:</strong> Wallet connection detection</li>
+    </ul>
+
+    <h3>4.2 Web3 Integration Layer</h3>
+    <p>The Web3 integration layer handles all blockchain interactions through a centralized service architecture:</p>
+
+    <pre>
+// Web3 Service Configuration
+const SEPOLIA_CHAIN_ID = '0xaa36a7';
+const SEPOLIA_RPC_URL = 'https://sepolia.infura.io/v3/YOUR_INFURA_KEY';
+const XMRT_CONTRACT_ADDRESS = '0x77307DFbc436224d5e6f2048d2b6bDfA66998a15';
+    </pre>
+
+    <h3>4.3 State Management</h3>
+    <p>Application state is managed through React Context API, providing global access to:</p>
+    <ul>
+      <li>Wallet connection status</li>
+      <li>User account information</li>
+      <li>Token balances and staking data</li>
+      <li>Transaction history</li>
+      <li>Error handling and notifications</li>
+    </ul>
+
+    <h2>5. Smart Contract Architecture</h2>
+
+    <h3>5.1 Contract Inheritance Structure</h3>
+    <p>The XMRT Token Contract follows OpenZeppelin standards and implements the following interfaces:</p>
+    <ul>
+      <li>IERC20: Standard token interface</li>
+      <li>IERC20Metadata: Token metadata interface</li>
+      <li>Ownable: Contract ownership management</li>
+      <li>ReentrancyGuard: Reentrancy attack protection</li>
+    </ul>
+
+    <h3>5.2 Staking Mechanism</h3>
+    <p>The staking system provides users with rewards based on their staked token amount and duration:</p>
+    <ul>
+      <li><strong>APY:</strong> 12% annual percentage yield</li>
+      <li><strong>Reward Calculation:</strong> Proportional to staked amount and time</li>
+      <li><strong>Compound Interest:</strong> Rewards can be restaked automatically</li>
+      <li><strong>Unstaking:</strong> Instant unstaking with reward claiming</li>
+    </ul>
+
+    <h3>5.3 Security Features</h3>
+    <p>Multiple security measures protect against common smart contract vulnerabilities:</p>
+    <ul>
+      <li><strong>Reentrancy Protection:</strong> Prevents recursive calls during critical operations</li>
+      <li><strong>Integer Overflow Protection:</strong> SafeMath operations for all calculations</li>
+      <li><strong>Access Control:</strong> Role-based permissions for administrative functions</li>
+      <li><strong>Pausable Functions:</strong> Emergency pause capability for critical operations</li>
+    </ul>
+
+    <h2>6. Web3 Frontend Integration</h2>
+
+    <h3>6.1 Wallet Connection</h3>
+    <p>
+      The application automatically detects and connects to MetaMask wallets, handling network switching and account
+      management:
+    </p>
+
+    <pre>
+// MetaMask Connection Flow
+1. Detect MetaMask provider
+2. Request account access
+3. Verify network (Sepolia)
+4. Initialize contract instances
+5. Set up event listeners
+    </pre>
+
+    <h3>6.2 Transaction Handling</h3>
+    <p>All blockchain transactions are processed through a standardized flow:</p>
+    <ol>
+      <li>User initiates transaction through UI</li>
+      <li>Frontend validates transaction parameters</li>
+      <li>Transaction is sent to MetaMask for signing</li>
+      <li>Signed transaction is broadcast to network</li>
+      <li>Transaction status is monitored and displayed</li>
+      <li>UI updates reflect successful transaction</li>
+    </ol>
+
+    <h3>6.3 Real-Time Updates</h3>
+    <p>The application maintains real-time synchronization with blockchain state through:</p>
+    <ul>
+      <li>Event listeners for contract events</li>
+      <li>Periodic balance updates</li>
+      <li>Transaction confirmation monitoring</li>
+      <li>Automatic UI refresh on state changes</li>
+    </ul>
+
+    <h2>7. Security Framework</h2>
+
+    <h3>7.1 Smart Contract Security</h3>
+    <p>Comprehensive security measures protect user funds and prevent common attack vectors:</p>
+    <ul>
+      <li><strong>Audited Code:</strong> All contracts follow OpenZeppelin standards</li>
+      <li><strong>Formal Verification:</strong> Critical functions mathematically verified</li>
+      <li><strong>Emergency Procedures:</strong> Pause functionality for critical situations</li>
+      <li><strong>Multi-signature Controls:</strong> Administrative functions require multiple signatures</li>
+    </ul>
+
+    <h3>7.2 Frontend Security</h3>
+    <p>Client-side security measures protect user data and prevent malicious activities:</p>
+    <ul>
+      <li><strong>Input Validation:</strong> All user inputs validated before processing</li>
+      <li><strong>Secure Communications:</strong> HTTPS encryption for all API calls</li>
+      <li><strong>Environment Protection:</strong> Sensitive data stored in environment variables</li>
+      <li><strong>Error Handling:</strong> Comprehensive error handling prevents information leakage</li>
+    </ul>
+
+    <h3>7.3 Governance and Anti-Rug Pull Measures</h3>
+    <p>
+      The XMRT ecosystem implements advanced governance mechanisms to prevent rug pulls and ensure long-term
+      sustainability:
+    </p>
+    <ul>
+      <li><strong>Decentralized Governance:</strong> Community voting on major decisions</li>
+      <li><strong>Transparent Operations:</strong> All transactions publicly auditable</li>
+      <li><strong>Locked Liquidity:</strong> Liquidity pools locked for extended periods</li>
+      <li><strong>AI-Powered Monitoring:</strong> Automated detection of suspicious activities</li>
+    </ul>
+
+    <h2>8. Deployment Guide</h2>
+
+    <h3>8.1 Prerequisites</h3>
+    <p>Before deploying the XMRT ecosystem, ensure the following requirements are met:</p>
+    <ul>
+      <li>Node.js 18.0 or higher installed</li>
+      <li>MetaMask browser extension</li>
+      <li>Sepolia testnet ETH for gas fees</li>
+      <li>Infura or similar RPC provider account</li>
+      <li>Git for version control</li>
+    </ul>
+
+    <h3>8.2 Local Development Setup</h3>
+    <p>Follow these steps to set up a local development environment:</p>
+    <ol>
+      <li>Clone the repository from GitHub</li>
+      <li>Install dependencies: <code>npm install</code></li>
+      <li>Configure environment variables in <code>.env</code> file</li>
+      <li>Start development server: <code>npm run dev</code></li>
+      <li>Open browser to <code>http://localhost:3000</code></li>
+    </ol>
+
+    <h3>8.3 Environment Configuration</h3>
+    <p>Create a <code>.env</code> file in the project root with the following variables:</p>
+    <pre>
+VITE_SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR_INFURA_KEY
+VITE_XMART_ADDRESS=0x77307DFbc436224d5e6f2048d2b6bDfA66998a15
+VITE_FAUCET_ADDRESS=YOUR_FAUCET_CONTRACT_ADDRESS
+    </pre>
+
+    <h3>8.4 Production Deployment</h3>
+    <p>For production deployment to Vercel:</p>
+    <ol>
+      <li>Push code to GitHub repository</li>
+      <li>Connect repository to Vercel dashboard</li>
+      <li>Configure environment variables in Vercel settings</li>
+      <li>Deploy application</li>
+      <li>Test all functionality in production environment</li>
+    </ol>
+
+    <h2>9. Testing and Quality Assurance</h2>
+
+    <h3>9.1 Testing Strategy</h3>
+    <p>Comprehensive testing ensures system reliability and security:</p>
+    <ul>
+      <li><strong>Unit Tests:</strong> Individual function and component testing</li>
+      <li><strong>Integration Tests:</strong> End-to-end workflow testing</li>
+      <li><strong>Security Tests:</strong> Vulnerability scanning and penetration testing</li>
+      <li><strong>Performance Tests:</strong> Load testing and optimization</li>
+    </ul>
+
+    <h3>9.2 Testing Checklist</h3>
+    <p>Before deployment, verify the following functionality:</p>
+    <ul>
+      <li>MetaMask connection and account switching</li>
+      <li>Network detection and switching to Sepolia</li>
+      <li>Token balance display and updates</li>
+      <li>Staking and unstaking operations</li>
+      <li>Faucet claims with cooldown enforcement</li>
+      <li>Transaction history and confirmations</li>
+      <li>Error handling and user feedback</li>
+      <li>Responsive design across devices</li>
+    </ul>
+
+    <h2>10. Future Roadmap</h2>
+
+    <h3>10.1 Planned Features</h3>
+    <p>The XMRT ecosystem development roadmap includes several upcoming features:</p>
+    <ul>
+      <li><strong>Mainnet Launch:</strong> Migration to Ethereum mainnet</li>
+      <li><strong>Mobile Application:</strong> Native iOS and Android apps</li>
+      <li><strong>Advanced DeFi Features:</strong> Yield farming and liquidity pools</li>
+      <li><strong>NFT Integration:</strong> Non-fungible token marketplace</li>
+      <li><strong>Multi-chain Support:</strong> Polygon, Binance Smart Chain integration</li>
+      <li><strong>DAO Governance:</strong> Decentralized autonomous organization</li>
+    </ul>
+
+    <h3>10.2 Technical Enhancements</h3>
+    <p>Planned technical improvements include:</p>
+    <ul>
+      <li>Layer 2 scaling solutions</li>
+      <li>Enhanced privacy features</li>
+      <li>AI-powered analytics dashboard</li>
+      <li>Advanced security monitoring</li>
+      <li>Cross-chain interoperability</li>
+    </ul>
+
+    <h2>11. Support and Maintenance</h2>
+
+    <h3>11.1 Community Support</h3>
+    <p>The XMRT community provides multiple channels for user support:</p>
+    <ul>
+      <li><strong>Discord Server:</strong> Real-time community chat</li>
+      <li><strong>Telegram Group:</strong> Announcements and discussions</li>
+      <li><strong>GitHub Issues:</strong> Bug reports and feature requests</li>
+      <li><strong>Documentation Wiki:</strong> Comprehensive user guides</li>
+    </ul>
+
+    <h3>11.2 Development Team</h3>
+    <p>
+      The core development team is led by Joe and includes blockchain developers, security experts, and UI/UX designers
+      committed to maintaining and improving the XMRT ecosystem.
+    </p>
+
+    <h3>11.3 Long-term Sustainability</h3>
+    <p>The XMRT project is designed for long-term sustainability through:</p>
+    <ul>
+      <li>Community-driven development</li>
+      <li>Transparent governance processes</li>
+      <li>Sustainable tokenomics</li>
+      <li>Regular security audits</li>
+      <li>Continuous innovation</li>
+    </ul>
+
+    <p style="text-align: center; margin-top: 48px; font-style: italic">
+      This document represents the current state of the XMRT ecosystem as of July 2025. For the most up-to-date
+      information, please visit our GitHub repository and official documentation.
+    </p>
+  </body>
+</html>
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDpFLicYnN19oKKDgfYuSGQ3ux%2FVeQpD8vXFYntww16EBt8bY1c%2F5haAQJ%2BPsDKDr4HuZ8873DwEB2B8rVN3cy%2BgcUghC5SOxVqPS6C6T4m%2FYovOVN2IH4Hy9flhg%2BEqBlpW%2BP%2FM0GdXw3BG4qhc6R079jrgLFz4Z63RbhOaaTI%2BHARCpSVXd0mxBM4NP6VqbubCAyOihA7p6206GivlB3xaht%2BJxGM4pIgkVhS%2FQ0LAKSn%2BSvEDOgBXEs944%2FpmZ1kRzBNoXfIdclt5eMAA71UzXhQhG9aj9GroHXZpf6M2eNzYlrDoQEys8vXlGoY72GFxR7iMoAhsiiZsiEMkunnNMyn8yfWtDng6HdBz%2FGQGKhtJ9rtHm4Q1jKmoOQi2%2Be9uV5ZrmthZaU%2FC11YHxAl%2FG7qz9v7lIMvFTASMc%2BvqhGIkXaUUpLKKY%2BgJRpONBSSuzUdhZdRZjq%2FHo4awt77IUBsZAnZk6KvuNTi8wbWg%2FIsMaQ7S2QQShUsYPpePZpKRkDUp3A3Pxsjp7wSLGKlk%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDpFLicYnN19oKKDgfYuSGQ3ux/VeQpD8vXFYntww16EBt8bY1c/5haAQJ+PsDKDr4HuZ8873DwEB2B8rVN3cy+gcUghC5SOxVqPS6C6T4m/YovOVN2IH4Hy9flhg+EqBlpW+P/M0GdXw3BG4qhc6R079jrgLFz4Z63RbhOaaTI+HARCpSVXd0mxBM4NP6VqbubCAyOihA7p6206GivlB3xaht+JxGM4pIgkVhS/Q0LAKSn+SvEDOgBXEs944/pmZ1kRzBNoXfIdclt5eMAA71UzXhQhG9aj9GroHXZpf6M2eNzYlrDoQEys8vXlGoY72GFxR7iMoAhsiiZsiEMkunnNMyn8yfWtDng6HdBz/GQGKhtJ9rtHm4Q1jKmoOQi2+e9uV5ZrmthZaU/C11YHxAl/G7qz9v7lIMvFTASMc+vqhGIkXaUUpLKKY+gJRpONBSSuzUdhZdRZjq/Ho4awt77IUBsZAnZk6KvuNTi8wbWg/IsMaQ7S2QQShUsYPpePZpKRkDUp3A3Pxsjp7wSLGKlk=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

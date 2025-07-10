@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XMRT Ecosystem V2 Configuration Files</title>
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', serif;
+        line-height: 1.6;
+        color: #000;
+        background: #fff;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 24px;
+        text-align: center;
+        border-bottom: 2px solid #000;
+        padding-bottom: 8px;
+      }
+
+      h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 32px;
+        margin-bottom: 16px;
+        color: #333;
+      }
+
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 24px;
+        margin-bottom: 12px;
+        color: #555;
+      }
+
+      p {
+        margin-bottom: 12px;
+        text-align: justify;
+      }
+
+      pre {
+        background: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 16px;
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+        line-height: 1.4;
+        overflow-x: auto;
+        margin: 16px 0;
+        white-space: pre-wrap;
+      }
+
+      code {
+        font-family: 'Courier New', monospace;
+        background: #f0f0f0;
+        padding: 2px 4px;
+        border-radius: 2px;
+        font-size: 12px;
+      }
+
+      .filename {
+        font-weight: bold;
+        color: #2c3e50;
+        margin-top: 24px;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      ul {
+        margin-left: 24px;
+        margin-bottom: 16px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>XMRT Ecosystem V2 Configuration Files</h1>
+
+    <p>
+      This document contains the essential configuration files for the XMRT ecosystem monorepo. These files establish
+      the foundation for a comprehensive development environment supporting web frontend, mobile applications, API
+      backend, smart contracts, AI agents, and documentation.
+    </p>
+
+    <h2>1. Root Package.json Configuration</h2>
+
+    <div class="filename">File: /xmrt-ecosystem-v2/package.json</div>
+    <pre>
+{
+  "name": "xmrt-ecosystem",
+  "version": "2.0.0",
+  "description": "XMRT Ecosystem - Cross-chain Multi-Resource Token Platform",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "contracts/*",
+    "ai-agents/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:build": "docker-compose build",
+    "deploy:testnet": "turbo run deploy:testnet",
+    "deploy:mainnet": "turbo run deploy:mainnet",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "turbo": "^1.10.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xmrt-ecosystem/xmrt-ecosystem-v2"
+  },
+  "author": "XMRT Team",
+  "license": "MIT"
+}</pre
+    >
+
+    <h2>2. TypeScript Configuration</h2>
+
+    <div class="filename">File: /xmrt-ecosystem-v2/tsconfig.json</div>
+    <pre>
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@xmrt/shared": ["./packages/shared/src"],
+      "@xmrt/contracts": ["./contracts/src"],
+      "@xmrt/types": ["./packages/types/src"],
+      "@xmrt/utils": ["./packages/utils/src"],
+      "@xmrt/ai-agents": ["./ai-agents/src"]
+    }
+  },
+  "include": [
+    "apps/**/*",
+    "packages/**/*",
+    "contracts/**/*",
+    "ai-agents/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}</pre
+    >
+
+    <h2>3. Git Ignore Configuration</h2>
+
+    <div class="filename">File: /xmrt-ecosystem-v2/.gitignore</div>
+    <pre>
+# Dependencies
+node_modules/
+*/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+.turbo/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next/
+out/
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Docker
+docker-compose.override.yml
+
+# Blockchain
+cache/
+artifacts/
+typechain/
+deployments/
+
+# AI Models
+*.model
+*.weights
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mobile
+*.apk
+*.ipa
+ios/build/
+android/build/
+android/app/build/
+
+# Testing
+.nyc_output/
+coverage/</pre
+    >
+
+    <h2>4. Project README</h2>
+
+    <div class="filename">File: /xmrt-ecosystem-v2/README.md</div>
+    <pre>
+# XMRT Ecosystem V2
+
+## Overview
+
+The XMRT Ecosystem V2 is a comprehensive cross-chain multi-resource token platform that enables seamless asset management, AI-powered automation, and decentralized applications across multiple blockchain networks.
+
+## Architecture
+
+```
+xmrt-ecosystem-v2/
+├── apps/
+│   ├── web/           # Next.js web application
+│   ├── mobile/        # React Native mobile app
+│   └── api/           # Node.js API backend
+├── packages/
+│   ├── shared/        # Shared utilities and components
+│   ├── types/         # TypeScript type definitions
+│   └── ui/            # Shared UI components
+├── contracts/
+│   ├── core/          # Core XMRT smart contracts
+│   ├── defi/          # DeFi protocol contracts
+│   └── governance/    # DAO governance contracts
+├── ai-agents/
+│   ├── trading/       # AI trading agents
+│   ├── analytics/     # Data analytics agents
+│   └── automation/    # Workflow automation agents
+├── docs/              # Documentation
+└── infrastructure/    # DevOps and deployment configs
+```
+
+## Features
+
+- **Multi-chain Support**: Ethereum, Polygon, Arbitrum, Optimism
+- **AI-Powered Trading**: Automated trading strategies and portfolio management
+- **DeFi Integration**: Yield farming, liquidity provision, and staking
+- **Cross-chain Bridges**: Seamless asset transfers between chains
+- **Mobile First**: Native mobile applications for iOS and Android
+- **Real-time Analytics**: Advanced portfolio tracking and performance metrics
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 18+
+- Docker & Docker Compose
+- Git
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/xmrt-ecosystem/xmrt-ecosystem-v2.git
+cd xmrt-ecosystem-v2
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env
+# Edit .env with your configuration
+```
+
+4. Start the development environment:
+```bash
+npm run docker:up
+npm run dev
+```
+
+### Development Commands
+
+- `npm run dev` - Start all development servers
+- `npm run build` - Build all packages
+- `npm run test` - Run all tests
+- `npm run lint` - Lint all code
+- `npm run format` - Format code with Prettier
+- `npm run typecheck` - Check TypeScript types
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and linting
+5. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details</pre
+    >
+
+    <h2>5. Docker Compose Configuration</h2>
+
+    <div class="filename">File: /xmrt-ecosystem-v2/docker-compose.yml</div>
+    <pre>
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: xmrt_db
+      POSTGRES_USER: xmrt_user
+      POSTGRES_PASSWORD: xmrt_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - xmrt_network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - xmrt_network
+
+  # MongoDB for AI Agents
+  mongodb:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: xmrt_admin
+      MONGO_INITDB_ROOT_PASSWORD: xmrt_mongo_password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - xmrt_network
+
+  # IPFS Node
+  ipfs:
+    image: ipfs/go-ipfs:latest
+    ports:
+      - "4001:4001"
+      - "5001:5001"
+      - "8080:8080"
+    volumes:
+      - ipfs_data:/data/ipfs
+    networks:
+      - xmrt_network
+
+  # Ethereum Local Node (Hardhat)
+  hardhat:
+    build:
+      context: ./contracts
+      dockerfile: Dockerfile
+    ports:
+      - "8545:8545"
+    volumes:
+      - ./contracts:/app
+    networks:
+      - xmrt_network
+
+  # API Backend
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_URL=postgresql://xmrt_user:xmrt_password@postgres:5432/xmrt_db
+      - REDIS_URL=redis://redis:6379
+      - MONGODB_URL=mongodb://xmrt_admin:xmrt_mongo_password@mongodb:27017
+    depends_on:
+      - postgres
+      - redis
+      - mongodb
+    networks:
+      - xmrt_network
+
+  # Web Frontend
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://api:3001
+      - NEXT_PUBLIC_CHAIN_ID=31337
+    depends_on:
+      - api
+    networks:
+      - xmrt_network
+
+  # AI Agents Service
+  ai-agents:
+    build:
+      context: ./ai-agents
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGODB_URL=mongodb://xmrt_admin:xmrt_mongo_password@mongodb:27017
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - xmrt_network
+
+volumes:
+  postgres_data:
+  redis_data:
+  mongodb_data:
+  ipfs_data:
+
+networks:
+  xmrt_network:
+    driver: bridge</pre
+    >
+
+    <h2>6. Environment Variables Template</h2>
+
+    <div class="filename">File: /xmrt-ecosystem-v2/.env.example</div>
+    <pre>
+# Database Configuration
+DATABASE_URL=postgresql://xmrt_user:xmrt_password@localhost:5432/xmrt_db
+REDIS_URL=redis://localhost:6379
+MONGODB_URL=mongodb://xmrt_admin:xmrt_mongo_password@localhost:27017
+
+# Blockchain Configuration
+ETHEREUM_RPC_URL=https://mainnet.infura.io/v3/YOUR_INFURA_KEY
+POLYGON_RPC_URL=https://polygon-mainnet.infura.io/v3/YOUR_INFURA_KEY
+ARBITRUM_RPC_URL=https://arbitrum-mainnet.infura.io/v3/YOUR_INFURA_KEY
+OPTIMISM_RPC_URL=https://optimism-mainnet.infura.io/v3/YOUR_INFURA_KEY
+
+# Private Keys (DO NOT COMMIT REAL KEYS)
+DEPLOYER_PRIVATE_KEY=0x0000000000000000000000000000000000000000000000000000000000000000
+OPERATOR_PRIVATE_KEY=0x0000000000000000000000000000000000000000000000000000000000000000
+
+# API Keys
+INFURA_PROJECT_ID=your_infura_project_id
+ALCHEMY_API_KEY=your_alchemy_api_key
+ETHERSCAN_API_KEY=your_etherscan_api_key
+POLYGONSCAN_API_KEY=your_polygonscan_api_key
+
+# AI & ML Configuration
+OPENAI_API_KEY=your_openai_api_key
+ANTHROPIC_API_KEY=your_anthropic_api_key
+HUGGINGFACE_API_KEY=your_huggingface_api_key
+
+# External Services
+IPFS_GATEWAY_URL=https://ipfs.io/ipfs/
+PINATA_API_KEY=your_pinata_api_key
+PINATA_SECRET_KEY=your_pinata_secret_key
+
+# Authentication
+JWT_SECRET=your_jwt_secret_key
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+# Monitoring & Analytics
+SENTRY_DSN=your_sentry_dsn
+MIXPANEL_TOKEN=your_mixpanel_token
+
+# Development
+NODE_ENV=development
+PORT=3001
+NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_CHAIN_ID=31337
+
+# Production
+DOMAIN=xmrt.io
+SSL_ENABLED=true
+CDN_URL=https://cdn.xmrt.io</pre
+    >
+
+    <h2>7. Makefile for Development Operations</h2>
+
+    <div class="filename">File: /xmrt-ecosystem-v2/Makefile</div>
+    <pre>
+.PHONY: help install dev build test lint format clean docker-up docker-down deploy-testnet deploy-mainnet
+
+# Default target
+help:
+	@echo "XMRT Ecosystem V2 - Available Commands:"
+	@echo "  install        - Install all dependencies"
+	@echo "  dev            - Start development environment"
+	@echo "  build          - Build all packages"
+	@echo "  test           - Run all tests"
+	@echo "  lint           - Run linting"
+	@echo "  format         - Format code"
+	@echo "  clean          - Clean build artifacts"
+	@echo "  docker-up      - Start Docker services"
+	@echo "  docker-down    - Stop Docker services"
+	@echo "  deploy-testnet - Deploy to testnet"
+	@echo "  deploy-mainnet - Deploy to mainnet"
+
+# Install dependencies
+install:
+	npm install
+
+# Start development environment
+dev:
+	docker-compose up -d postgres redis mongodb ipfs
+	npm run dev
+
+# Build all packages
+build:
+	npm run build
+
+# Run tests
+test:
+	npm run test
+
+# Run linting
+lint:
+	npm run lint
+
+# Format code
+format:
+	npm run format
+
+# Clean build artifacts
+clean:
+	npm run clean
+	docker-compose down -v
+	docker system prune -f
+
+# Docker operations
+docker-up:
+	docker-compose up -d
+
+docker-down:
+	docker-compose down
+
+docker-build:
+	docker-compose build
+
+# Deployment
+deploy-testnet:
+	npm run deploy:testnet
+
+deploy-mainnet:
+	npm run deploy:mainnet
+
+# Development utilities
+typecheck:
+	npm run typecheck
+
+logs:
+	docker-compose logs -f
+
+status:
+	docker-compose ps
+
+# Database operations
+db-migrate:
+	npm run db:migrate
+
+db-seed:
+	npm run db:seed
+
+db-reset:
+	npm run db:reset
+
+# Security
+security-check:
+	npm audit
+	npm run security:slither
+	npm run security:mythril</pre
+    >
+
+    <h2>8. Turbo Configuration</h2>
+
+    <div class="filename">File: /xmrt-ecosystem-v2/turbo.json</div>
+    <pre>
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "build/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": ["coverage/**"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "clean": {
+      "cache": false
+    },
+    "deploy:testnet": {
+      "dependsOn": ["build", "test"],
+      "outputs": ["deployments/**"]
+    },
+    "deploy:mainnet": {
+      "dependsOn": ["build", "test"],
+      "outputs": ["deployments/**"]
+    }
+  }
+}</pre
+    >
+
+    <h2>Next Steps</h2>
+
+    <p>
+      With these configuration files in place, the XMRT Ecosystem V2 is ready for development. The next steps would be:
+    </p>
+
+    <ul>
+      <li>Set up individual package.json files for each workspace</li>
+      <li>Configure TypeScript for each application and package</li>
+      <li>Set up Docker files for each service</li>
+      <li>Initialize the smart contract development environment</li>
+      <li>Configure the AI agents framework</li>
+      <li>Set up CI/CD pipelines</li>
+      <li>Configure monitoring and logging</li>
+    </ul>
+
+    <p>
+      This consolidated structure provides a solid foundation for developing a comprehensive cross-chain ecosystem with
+      proper separation of concerns, shared utilities, and streamlined development workflows.
+    </p>
+  </body>
+</html>
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDvBzm4jWRgP8FzJ%2B2hf1EKz7kehgDfgaFbjgQ7%2F5OspWUzMg3cDrxwOYmQQ7Yxk9FQdRilOog3sbJh2Z%2Fx%2B8vyZewi3ynyssv8aYyxh3V3coseHhH5X%2FRK0WhE4LmfD8EeMfEiUok6L7NDCjpfKz6zEp7r3iJA1ynGyJTt58DpKwlr%2FKONaHiy7wkmsFyb7kK3X2QX0nCLGgADEq4FBlzulCaNZwnJvG0xGgT8B1ljnSLr3VLz98ETzzWmkXgkKxsT3ygR7BS90ILtx9MEHpWRmGPGHod%2Bqvi4dYKUcFdSHWXmqo%2FN8oFedIIQDWRyb5ulHbWsQKxi6UWfm0fJd9labNccauZ3w9JJ2MZzUaVuYfndwNElXuJ5EnwrReEj1ag31%2Bww7%2BnVURJGSZP2n9xVn12l3zwBucMUFPyWbcxPkJoH9KzCFBMuzscOADH8vghUT8bIGQnk3uAj4TB2ssGYNWwveMD%2Bj2bWFgCCJNstxzE%2BQpycrYB2h%2BwCmUFgEh7A%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDvBzm4jWRgP8FzJ+2hf1EKz7kehgDfgaFbjgQ7/5OspWUzMg3cDrxwOYmQQ7Yxk9FQdRilOog3sbJh2Z/x+8vyZewi3ynyssv8aYyxh3V3coseHhH5X/RK0WhE4LmfD8EeMfEiUok6L7NDCjpfKz6zEp7r3iJA1ynGyJTt58DpKwlr/KONaHiy7wkmsFyb7kK3X2QX0nCLGgADEq4FBlzulCaNZwnJvG0xGgT8B1ljnSLr3VLz98ETzzWmkXgkKxsT3ygR7BS90ILtx9MEHpWRmGPGHod+qvi4dYKUcFdSHWXmqo/N8oFedIIQDWRyb5ulHbWsQKxi6UWfm0fJd9labNccauZ3w9JJ2MZzUaVuYfndwNElXuJ5EnwrReEj1ag31+ww7+nVURJGSZP2n9xVn12l3zwBucMUFPyWbcxPkJoH9KzCFBMuzscOADH8vghUT8bIGQnk3uAj4TB2ssGYNWwveMD+j2bWFgCCJNstxzE+QpycrYB2h+wCmUFgEh7A==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

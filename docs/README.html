@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XMRT Ecosystem V2 - Consolidated Development Environment</title>
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', serif;
+        line-height: 1.6;
+        color: #000;
+        background: #fff;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 32px;
+        border-bottom: 2px solid #000;
+        padding-bottom: 16px;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 32px;
+        margin-bottom: 16px;
+        color: #000;
+      }
+
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 24px;
+        margin-bottom: 12px;
+        color: #000;
+      }
+
+      p {
+        text-align: justify;
+        margin-bottom: 16px;
+        text-indent: 0;
+      }
+
+      ul,
+      ol {
+        margin-bottom: 16px;
+        padding-left: 40px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      code {
+        font-family: 'Courier New', monospace;
+        background-color: #f5f5f5;
+        padding: 2px 4px;
+        border: 1px solid #ddd;
+      }
+
+      pre {
+        font-family: 'Courier New', monospace;
+        background-color: #f5f5f5;
+        padding: 16px;
+        border: 1px solid #ddd;
+        margin-bottom: 16px;
+        white-space: pre-wrap;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 16px;
+      }
+
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+      }
+
+      .section {
+        margin-bottom: 32px;
+      }
+
+      .directory-tree {
+        font-family: 'Courier New', monospace;
+        background-color: #f9f9f9;
+        padding: 16px;
+        border: 1px solid #ccc;
+        margin-bottom: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>XMRT Ecosystem V2 - Consolidated Development Environment</h1>
+
+    <div class="section">
+      <h2>Executive Summary</h2>
+      <p>
+        The XMRT Ecosystem V2 represents a comprehensive consolidation of all XMRT development components into a
+        unified, scalable, and maintainable monorepo architecture. This consolidated environment brings together AI
+        agents, smart contracts, web applications, mobile applications, and supporting infrastructure into a single
+        cohesive development workspace.
+      </p>
+
+      <p>
+        This consolidation addresses the fragmentation of previous development efforts while establishing a foundation
+        for rapid iteration, consistent deployment, and collaborative development across the entire XMRT ecosystem.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Project Architecture Overview</h2>
+      <p>
+        The XMRT Ecosystem V2 follows a monorepo architecture pattern, organizing all components into logical domains
+        while maintaining clear separation of concerns. The structure is designed to support both individual component
+        development and integrated system deployment.
+      </p>
+
+      <div class="directory-tree">
+        xmrt-ecosystem-v2/ ├── apps/ │ ├── web/ # Web application frontend │ ├── mobile/ # Mobile application │ └── api/
+        # Backend API services ├── packages/ │ ├── ecosystem-archives/ # Legacy components archive │ ├── shared/ #
+        Shared utilities and components │ └── ui/ # Shared UI components ├── contracts/ │ ├── core/ # Core XMRT
+        contracts │ ├── oracles/ # Oracle implementations │ └── bridges/ # Cross-chain bridge contracts ├── ai-agents/ │
+        ├── src/ # AI agent implementations │ ├── models/ # AI model definitions │ └── training/ # Training scripts and
+        data ├── docs/ │ ├── consolidated/ # Consolidated documentation │ ├── workspace-docs/# Workspace-specific docs │
+        └── api/ # API documentation ├── infrastructure/ │ ├── docker/ # Docker configurations │ ├── k8s/ # Kubernetes
+        manifests │ └── terraform/ # Infrastructure as code └── workspace/ # Development workspace
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Core Components</h2>
+
+      <h3>Applications Layer</h3>
+      <p>The applications layer encompasses all user-facing components of the XMRT ecosystem:</p>
+      <ul>
+        <li>
+          <strong>Web Application</strong>: React-based frontend with Vite build system, providing the primary user
+          interface for XMRT interactions
+        </li>
+        <li><strong>Mobile Application</strong>: Cross-platform mobile solution for iOS and Android users</li>
+        <li><strong>API Services</strong>: RESTful and GraphQL API endpoints supporting all client applications</li>
+      </ul>
+
+      <h3>Smart Contracts</h3>
+      <p>The contracts layer contains all blockchain-related smart contract implementations:</p>
+      <ul>
+        <li><strong>Core Contracts</strong>: Fundamental XMRT token and governance contracts</li>
+        <li><strong>Oracle System</strong>: Decentralized oracle network for external data feeds</li>
+        <li><strong>Bridge Contracts</strong>: Cross-chain interoperability solutions</li>
+      </ul>
+
+      <h3>AI Agents</h3>
+      <p>The AI agents layer provides intelligent automation and decision-making capabilities:</p>
+      <ul>
+        <li><strong>Trading Agents</strong>: Automated trading strategies and market making</li>
+        <li><strong>Governance Agents</strong>: Proposal analysis and voting recommendations</li>
+        <li><strong>Risk Management</strong>: Automated risk assessment and mitigation</li>
+      </ul>
+
+      <h3>Shared Packages</h3>
+      <p>The packages layer contains reusable components and utilities:</p>
+      <ul>
+        <li><strong>UI Components</strong>: Shared React components with consistent styling</li>
+        <li><strong>Utilities</strong>: Common functions and helpers used across applications</li>
+        <li><strong>Type Definitions</strong>: TypeScript type definitions for consistency</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Development Workflow</h2>
+
+      <h3>Environment Setup</h3>
+      <p>The consolidated environment supports multiple development scenarios:</p>
+      <ol>
+        <li><strong>Local Development</strong>: Full stack development with hot reloading</li>
+        <li><strong>Docker Development</strong>: Containerized development environment</li>
+        <li><strong>Cloud Development</strong>: Remote development with cloud resources</li>
+      </ol>
+
+      <h3>Build and Deployment</h3>
+      <p>The ecosystem supports multiple deployment strategies:</p>
+      <ul>
+        <li><strong>Continuous Integration</strong>: Automated testing and validation</li>
+        <li><strong>Staging Environment</strong>: Pre-production testing and validation</li>
+        <li><strong>Production Deployment</strong>: Blue-green deployment with rollback capabilities</li>
+      </ul>
+
+      <h3>Testing Strategy</h3>
+      <p>Comprehensive testing approach across all components:</p>
+      <ul>
+        <li><strong>Unit Testing</strong>: Component-level testing with Jest and React Testing Library</li>
+        <li><strong>Integration Testing</strong>: API and contract interaction testing</li>
+        <li><strong>End-to-End Testing</strong>: Full user journey testing with Playwright</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Technology Stack</h2>
+
+      <table>
+        <tr>
+          <th>Layer</th>
+          <th>Technology</th>
+          <th>Purpose</th>
+        </tr>
+        <tr>
+          <td>Frontend</td>
+          <td>React, Vite, TypeScript</td>
+          <td>User interface development</td>
+        </tr>
+        <tr>
+          <td>Backend</td>
+          <td>Node.js, Express, GraphQL</td>
+          <td>API services and business logic</td>
+        </tr>
+        <tr>
+          <td>Blockchain</td>
+          <td>Solidity, Hardhat, Ethers.js</td>
+          <td>Smart contract development</td>
+        </tr>
+        <tr>
+          <td>AI/ML</td>
+          <td>Python, TensorFlow, PyTorch</td>
+          <td>AI agent development</td>
+        </tr>
+        <tr>
+          <td>Database</td>
+          <td>PostgreSQL, Redis, IPFS</td>
+          <td>Data storage and caching</td>
+        </tr>
+        <tr>
+          <td>Infrastructure</td>
+          <td>Docker, Kubernetes, Terraform</td>
+          <td>Deployment and scaling</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Configuration Management</h2>
+
+      <h3>Environment Variables</h3>
+      <p>The ecosystem uses a hierarchical configuration system:</p>
+      <ul>
+        <li><strong>Global Configuration</strong>: Shared across all components</li>
+        <li><strong>Component Configuration</strong>: Specific to individual applications</li>
+        <li><strong>Environment-Specific</strong>: Development, staging, and production variants</li>
+      </ul>
+
+      <h3>Security Considerations</h3>
+      <p>Security is integrated throughout the development process:</p>
+      <ul>
+        <li><strong>Secret Management</strong>: Encrypted storage of sensitive configuration</li>
+        <li><strong>Access Control</strong>: Role-based permissions for different environments</li>
+        <li><strong>Audit Logging</strong>: Comprehensive logging for security monitoring</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Performance Optimization</h2>
+
+      <h3>Frontend Optimization</h3>
+      <p>The web application implements several performance optimizations:</p>
+      <ul>
+        <li><strong>Code Splitting</strong>: Lazy loading of application components</li>
+        <li><strong>Bundle Optimization</strong>: Vite-based build optimization</li>
+        <li><strong>Caching Strategy</strong>: Service worker and browser caching</li>
+      </ul>
+
+      <h3>Backend Optimization</h3>
+      <p>API services are optimized for scalability and performance:</p>
+      <ul>
+        <li><strong>Database Optimization</strong>: Query optimization and indexing</li>
+        <li><strong>Caching Layers</strong>: Redis-based caching for frequently accessed data</li>
+        <li><strong>Connection Pooling</strong>: Efficient database connection management</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Monitoring and Observability</h2>
+
+      <h3>Application Monitoring</h3>
+      <p>Comprehensive monitoring across all ecosystem components:</p>
+      <ul>
+        <li><strong>Performance Metrics</strong>: Response times, throughput, and error rates</li>
+        <li><strong>Business Metrics</strong>: User engagement and transaction volumes</li>
+        <li><strong>System Health</strong>: Resource utilization and availability</li>
+      </ul>
+
+      <h3>Alerting Strategy</h3>
+      <p>Proactive alerting system for critical issues:</p>
+      <ul>
+        <li><strong>Threshold-based Alerts</strong>: Automated alerts for metric thresholds</li>
+        <li><strong>Anomaly Detection</strong>: Machine learning-based anomaly detection</li>
+        <li><strong>Escalation Procedures</strong>: Defined escalation paths for different severity levels</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Migration Strategy</h2>
+
+      <h3>Legacy System Integration</h3>
+      <p>The consolidation includes provisions for legacy system integration:</p>
+      <ul>
+        <li><strong>Gradual Migration</strong>: Phased approach to minimize disruption</li>
+        <li><strong>Backward Compatibility</strong>: Maintaining compatibility with existing integrations</li>
+        <li><strong>Data Migration</strong>: Automated tools for data transfer and validation</li>
+      </ul>
+
+      <h3>Rollback Procedures</h3>
+      <p>Comprehensive rollback capabilities for safe deployment:</p>
+      <ul>
+        <li><strong>Database Rollback</strong>: Schema and data rollback procedures</li>
+        <li><strong>Application Rollback</strong>: Automated application version rollback</li>
+        <li><strong>Configuration Rollback</strong>: Environment configuration restoration</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Future Roadmap</h2>
+
+      <h3>Phase 1: Foundation (Q1 2025)</h3>
+      <ul>
+        <li>Complete core application development and testing</li>
+        <li>Implement basic smart contract functionality</li>
+        <li>Deploy initial AI agent capabilities</li>
+        <li>Establish CI/CD pipeline</li>
+      </ul>
+
+      <h3>Phase 2: Enhancement (Q2 2025)</h3>
+      <ul>
+        <li>Advanced AI agent features and training</li>
+        <li>Cross-chain bridge implementation</li>
+        <li>Mobile application release</li>
+        <li>Performance optimization and scaling</li>
+      </ul>
+
+      <h3>Phase 3: Expansion (Q3 2025)</h3>
+      <ul>
+        <li>Third-party integrations and partnerships</li>
+        <li>Advanced analytics and reporting</li>
+        <li>Community features and governance tools</li>
+        <li>International market expansion</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Conclusion</h2>
+      <p>
+        The XMRT Ecosystem V2 represents a significant consolidation and advancement of the XMRT development
+        environment. By bringing together all components into a unified architecture, we have created a foundation for
+        rapid development, consistent deployment, and scalable growth.
+      </p>
+
+      <p>
+        This consolidated approach enables better collaboration among development teams, reduces complexity in
+        deployment and maintenance, and provides a clear path for future expansion and enhancement of the XMRT
+        ecosystem.
+      </p>
+
+      <p>
+        The next steps involve populating the framework with specific implementations, configuring the development
+        environment, and beginning the systematic development of each component according to the established
+        architecture and roadmap.
+      </p>
+    </div>
+  </body>
+</html>
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDoN2pOPERtTf8g2Js9DHAOrkPdZL0cv6V4MtUWMc6rMuWDC%2Fmk6o7mHc9yfdNyZ1LdTPjX2dzKNSsD7mwLCnLvKMtF8kg58HMWD0suX9oR3510Lp9%2BhzHh5lcjeAkOgy0H8WTK8RIa1J7Z%2Fp7r%2Fn87bS6VY8zq9yccgSbPq6bb%2FLV8AjUvF5tkmGlHqurpgotgcEPB8vVjb7JYW0XZjT6CWW%2BmzZZ3lnz95nhCQ7FXCge07Z7QS2zxOWYzUMiQwri3%2BGr3NxaHX7J%2F2vo68cTHPYXHqndcKhNXYyghCL5m97%2FYpQSPsOmlOHi0N8LPjE0xxkK%2FKUganJ%2FBQE%2B8Uy4wgEAviANUcOwrjvXw7gHk3WcOiCr2XgtqpIaN0C17N3s9roMg8vsiGUctHLZt9uXOiJRtD9p02ruEmIf2b9qAiaGFU89Fg9LIi%2BZNipF6qF%2Bgmn%2B50j9VusPHYatFYxqyJ0TG6HKFZMHUbeGh01psr64f9hXpNUUEVfO31yDA03vzwdGaJP8mPMCLzxzGDTmMk%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDoN2pOPERtTf8g2Js9DHAOrkPdZL0cv6V4MtUWMc6rMuWDC/mk6o7mHc9yfdNyZ1LdTPjX2dzKNSsD7mwLCnLvKMtF8kg58HMWD0suX9oR3510Lp9+hzHh5lcjeAkOgy0H8WTK8RIa1J7Z/p7r/n87bS6VY8zq9yccgSbPq6bb/LV8AjUvF5tkmGlHqurpgotgcEPB8vVjb7JYW0XZjT6CWW+mzZZ3lnz95nhCQ7FXCge07Z7QS2zxOWYzUMiQwri3+Gr3NxaHX7J/2vo68cTHPYXHqndcKhNXYyghCL5m97/YpQSPsOmlOHi0N8LPjE0xxkK/KUganJ/BQE+8Uy4wgEAviANUcOwrjvXw7gHk3WcOiCr2XgtqpIaN0C17N3s9roMg8vsiGUctHLZt9uXOiJRtD9p02ruEmIf2b9qAiaGFU89Fg9LIi+ZNipF6qF+gmn+50j9VusPHYatFYxqyJ0TG6HKFZMHUbeGh01psr64f9hXpNUUEVfO31yDA03vzwdGaJP8mPMCLzxzGDTmMk=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
