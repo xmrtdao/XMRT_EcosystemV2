@@ -1,78 +1,69 @@
-# [React](https://react.dev/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![(Runtime) Build and Test](https://github.com/facebook/react/actions/workflows/runtime_build_and_test.yml/badge.svg)](https://github.com/facebook/react/actions/workflows/runtime_build_and_test.yml) [![(Compiler) TypeScript](https://github.com/facebook/react/actions/workflows/compiler_typescript.yml/badge.svg?branch=main)](https://github.com/facebook/react/actions/workflows/compiler_typescript.yml) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://legacy.reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
+# XMRT Ecosystem V2
 
-React is a JavaScript library for building user interfaces.
+This repository serves as the foundational monorepo for the XMRT Ecosystem, encompassing various components crucial for building a decentralized autonomous organization (DAO) powered by AI agents and blockchain technology. It includes smart contracts, AI agent implementations, decentralized applications (dApps), and infrastructure configurations.
 
-* **Declarative:** React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make your code more predictable, simpler to understand, and easier to debug.
-* **Component-Based:** Build encapsulated components that manage their own state, then compose them to make complex UIs. Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep the state out of the DOM.
-* **Learn Once, Write Anywhere:** We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code. React can also render on the server using [Node](https://nodejs.org/en) and power mobile apps using [React Native](https://reactnative.dev/).
+## Project Overview
 
-[Learn how to use React in your project](https://react.dev/learn).
+The XMRT Ecosystem V2 aims to provide a comprehensive framework for developing and deploying AI-driven DAOs. It integrates cutting-edge technologies such as zero-knowledge proofs (ZKPs) for enhanced privacy and verifiability, and the Eliza AI framework for autonomous organizational management.
 
-## Installation
+Key features include:
+- **Smart Contracts**: Core logic for DAO governance, treasury management, and token operations.
+- **AI Agents**: Intelligent agents built with the Eliza framework for decision-making, analysis, and automation.
+- **Decentralized Applications (dApps)**: User interfaces for interacting with the DAO and its AI agents.
+- **Zero-Knowledge Proofs**: Implementations for privacy-preserving operations (e.g., anonymous voting).
+- **Infrastructure**: Configuration and deployment scripts for various components.
 
-React has been designed for gradual adoption from the start, and **you can use as little or as much React as you need**:
+## Directory Structure
 
-* Use [Quick Start](https://react.dev/learn) to get a taste of React.
-* [Add React to an Existing Project](https://react.dev/learn/add-react-to-an-existing-project) to use as little or as much React as you need.
-* [Create a New React App](https://react.dev/learn/start-a-new-react-project) if you're looking for a powerful JavaScript toolchain.
+This monorepo is organized into the following key directories:
 
-## Documentation
+- `ai-agents/`: Contains the implementation of Eliza AI agents responsible for various DAO functions (e.g., governance, treasury, security).
+- `apps/`: Houses decentralized applications (dApps) that provide user interfaces for interacting with the XMRT DAO. This may include the frontend for the XMRT DAO prototype.
+- `contracts/`: Contains Solidity smart contracts for the XMRT token, DAO governance, treasury management, and other blockchain-related functionalities.
+- `docs/`: Documentation for the XMRT Ecosystem, including technical specifications, API references, and user guides.
+- `infrastructure/`: Configuration files and scripts for deploying and managing the XMRT Ecosystem components (e.g., blockchain nodes, AI agent servers).
+- `packages/`: A general directory for shared code, utilities, or common libraries used across different parts of the monorepo.
 
-You can find the React documentation [on the website](https://react.dev/).
+## Setup and Installation
 
-Check out the [Getting Started](https://react.dev/learn) page for a quick overview.
+To set up the XMRT Ecosystem V2 for local development, follow these general steps. Specific instructions for each component (AI agents, dApps, contracts) will be detailed within their respective directories.
 
-The documentation is divided into several sections:
+### Prerequisites
 
-* [Quick Start](https://react.dev/learn)
-* [Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
-* [Thinking in React](https://react.dev/learn/thinking-in-react)
-* [Installation](https://react.dev/learn/installation)
-* [Describing the UI](https://react.dev/learn/describing-the-ui)
-* [Adding Interactivity](https://react.dev/learn/adding-interactivity)
-* [Managing State](https://react.dev/learn/managing-state)
-* [Advanced Guides](https://react.dev/learn/escape-hatches)
-* [API Reference](https://react.dev/reference/react)
-* [Where to Get Support](https://react.dev/community)
-* [Contributing Guide](https://legacy.reactjs.org/docs/how-to-contribute.html)
+- Node.js (LTS version recommended)
+- npm or pnpm (pnpm is recommended for monorepos)
+- Python 3.9+
+- Git
+- Docker (optional, for containerized deployments)
+- Foundry or Hardhat (for smart contract development)
 
-You can improve it by sending pull requests to [this repository](https://github.com/reactjs/react.dev).
+### General Installation Steps
 
-## Examples
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/DevGruGold/XMRT_EcosystemV2.git
+    cd XMRT_EcosystemV2
+    ```
 
-We have several examples [on the website](https://react.dev/). Here is the first one to get you started:
+2.  **Install monorepo dependencies (using pnpm):**
+    ```bash
+    pnpm install
+    ```
+    *If you prefer npm, you might need to adjust your setup for monorepo management (e.g., using Lerna or npm workspaces).* 
 
-```jsx
-import { createRoot } from 'react-dom/client';
-
-function HelloMessage({ name }) {
-  return <div>Hello {name}</div>;
-}
-
-const root = createRoot(document.getElementById('container'));
-root.render(<HelloMessage name="Taylor" />);
-```
-
-This example will render "Hello Taylor" into a container on the page.
-
-You'll notice that we used an HTML-like syntax; [we call it JSX](https://react.dev/learn#writing-markup-with-jsx). JSX is not required to use React, but it makes code more readable, and writing it feels like writing HTML.
+3.  **Set up individual components:**
+    Navigate into each relevant directory (`ai-agents/`, `apps/`, `contracts/`, `infrastructure/`) and follow their specific `README.md` files for detailed setup, configuration, and running instructions.
 
 ## Contributing
 
-The main purpose of this repository is to continue evolving React core, making it faster and easier to use. Development of React happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving React.
+We welcome contributions to the XMRT Ecosystem V2! Please refer to the `CONTRIBUTING.md` file for guidelines on how to contribute, including:
 
-### [Code of Conduct](https://code.fb.com/codeofconduct)
+- Reporting bugs
+- Suggesting enhancements
+- Submitting pull requests
+- Code style and conventions
 
-Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.fb.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
+## License
 
-### [Contributing Guide](https://legacy.reactjs.org/docs/how-to-contribute.html)
+This project is licensed under the [MIT License](LICENSE).
 
-Read our [contributing guide](https://legacy.reactjs.org/docs/how-to-contribute.html) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.
-
-### [Good First Issues](https://github.com/facebook/react/labels/good%20first%20issue)
-
-To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/facebook/react/labels/good%20first%20issue) that contain bugs that have a relatively limited scope. This is a great place to get started.
-
-### License
-
-React is [MIT licensed](./LICENSE).
