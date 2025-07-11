@@ -1,35 +1,78 @@
-# XMRT Ecosystem V2
+# [React](https://react.dev/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react) [![(Runtime) Build and Test](https://github.com/facebook/react/actions/workflows/runtime_build_and_test.yml/badge.svg)](https://github.com/facebook/react/actions/workflows/runtime_build_and_test.yml) [![(Compiler) TypeScript](https://github.com/facebook/react/actions/workflows/compiler_typescript.yml/badge.svg?branch=main)](https://github.com/facebook/react/actions/workflows/compiler_typescript.yml) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://legacy.reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
-This repository contains the updated XMRT Ecosystem V2, a comprehensive suite of tools and applications designed to facilitate the development and deployment of decentralized applications (dApps) and smart contracts. This ecosystem aims to provide a robust and scalable foundation for blockchain-based projects, offering various components for different aspects of dApp development, from smart contract creation to frontend and mobile application development.
+React is a JavaScript library for building user interfaces.
 
-## Project Structure
+* **Declarative:** React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Declarative views make your code more predictable, simpler to understand, and easier to debug.
+* **Component-Based:** Build encapsulated components that manage their own state, then compose them to make complex UIs. Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep the state out of the DOM.
+* **Learn Once, Write Anywhere:** We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code. React can also render on the server using [Node](https://nodejs.org/en) and power mobile apps using [React Native](https://reactnative.dev/).
 
-The XMRT Ecosystem V2 is organized into several key directories, each serving a specific purpose:
+[Learn how to use React in your project](https://react.dev/learn).
 
-- **`.github/`**: Contains GitHub Actions workflows for continuous integration and deployment.
-- **`ai-agents/`**: Contains AI-powered agents designed to assist in various development tasks, such as smart contract generation and code analysis.
-- **`apps/`**: Houses the different applications within the ecosystem, including web and mobile frontends, and a backend API.
-  - **`apps/api/`**: Backend API for the ecosystem.
-  - **`apps/mobile/`**: Mobile application source code.
-  - **`apps/web/`**: Web application source code.
-    - **`apps/web/frontend/`**: Frontend for the web application.
-- **`contracts/`**: Contains the smart contracts for the XMRT Ecosystem, including core functionalities, bridges, and governance mechanisms.
-- **`docs/`**: Documentation files for the project, providing detailed information on setup, usage, and architecture.
-- **`infrastructure/`**: Infrastructure-related files, such as Docker configurations for deployment.
-- **`packages/`**: Reusable packages and modules shared across different parts of the ecosystem.
-  - **`packages/ecosystem-archives/`**: Archived versions of various ecosystem components and related projects.
-  - **`packages/shared/`**: Shared utility functions and components.
-  - **`packages/ui/`**: UI components and design system.
+## Installation
 
-## Getting Started
+React has been designed for gradual adoption from the start, and **you can use as little or as much React as you need**:
 
-To get started with the XMRT Ecosystem V2, please refer to the detailed documentation within the `docs/` directory. The documentation provides instructions on setting up your development environment, building and deploying applications, and interacting with the smart contracts.
+* Use [Quick Start](https://react.dev/learn) to get a taste of React.
+* [Add React to an Existing Project](https://react.dev/learn/add-react-to-an-existing-project) to use as little or as much React as you need.
+* [Create a New React App](https://react.dev/learn/start-a-new-react-project) if you're looking for a powerful JavaScript toolchain.
+
+## Documentation
+
+You can find the React documentation [on the website](https://react.dev/).
+
+Check out the [Getting Started](https://react.dev/learn) page for a quick overview.
+
+The documentation is divided into several sections:
+
+* [Quick Start](https://react.dev/learn)
+* [Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
+* [Thinking in React](https://react.dev/learn/thinking-in-react)
+* [Installation](https://react.dev/learn/installation)
+* [Describing the UI](https://react.dev/learn/describing-the-ui)
+* [Adding Interactivity](https://react.dev/learn/adding-interactivity)
+* [Managing State](https://react.dev/learn/managing-state)
+* [Advanced Guides](https://react.dev/learn/escape-hatches)
+* [API Reference](https://react.dev/reference/react)
+* [Where to Get Support](https://react.dev/community)
+* [Contributing Guide](https://legacy.reactjs.org/docs/how-to-contribute.html)
+
+You can improve it by sending pull requests to [this repository](https://github.com/reactjs/react.dev).
+
+## Examples
+
+We have several examples [on the website](https://react.dev/). Here is the first one to get you started:
+
+```jsx
+import { createRoot } from 'react-dom/client';
+
+function HelloMessage({ name }) {
+  return <div>Hello {name}</div>;
+}
+
+const root = createRoot(document.getElementById('container'));
+root.render(<HelloMessage name="Taylor" />);
+```
+
+This example will render "Hello Taylor" into a container on the page.
+
+You'll notice that we used an HTML-like syntax; [we call it JSX](https://react.dev/learn#writing-markup-with-jsx). JSX is not required to use React, but it makes code more readable, and writing it feels like writing HTML.
 
 ## Contributing
 
-We welcome contributions to the XMRT Ecosystem V2. Please refer to the `CONTRIBUTING.md` file for guidelines on how to contribute. Ensure you adhere to the `CODE_OF_CONDUCT.md` to maintain a positive and inclusive community.
+The main purpose of this repository is to continue evolving React core, making it faster and easier to use. Development of React happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving React.
 
-## License
+### [Code of Conduct](https://code.fb.com/codeofconduct)
 
-This project is licensed under the [MIT License](LICENSE).
+Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.fb.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
 
+### [Contributing Guide](https://legacy.reactjs.org/docs/how-to-contribute.html)
+
+Read our [contributing guide](https://legacy.reactjs.org/docs/how-to-contribute.html) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to React.
+
+### [Good First Issues](https://github.com/facebook/react/labels/good%20first%20issue)
+
+To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/facebook/react/labels/good%20first%20issue) that contain bugs that have a relatively limited scope. This is a great place to get started.
+
+### License
+
+React is [MIT licensed](./LICENSE).
