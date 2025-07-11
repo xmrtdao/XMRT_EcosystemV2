@@ -6,10 +6,13 @@ This repository contains the updated XMRT Ecosystem V2, a comprehensive suite of
 
 The XMRT Ecosystem V2 is organized into several key directories, each serving a specific purpose:
 
+- **`.github/`**: Contains GitHub Actions workflows for continuous integration and deployment.
 - **`ai-agents/`**: Contains AI-powered agents designed to assist in various development tasks, such as smart contract generation and code analysis.
-- **`apps/`**: Houses the different applications within the ecosystem, including web and mobile frontends.
+- **`apps/`**: Houses the different applications within the ecosystem, including web and mobile frontends, and a backend API.
+  - **`apps/api/`**: Backend API for the ecosystem.
   - **`apps/mobile/`**: Mobile application source code.
   - **`apps/web/`**: Web application source code.
+    - **`apps/web/frontend/`**: Frontend for the web application.
 - **`contracts/`**: Contains the smart contracts for the XMRT Ecosystem, including core functionalities, bridges, and governance mechanisms.
 - **`docs/`**: Documentation files for the project, providing detailed information on setup, usage, and architecture.
 - **`infrastructure/`**: Infrastructure-related files, such as Docker configurations for deployment.
