@@ -6,17 +6,23 @@ async function main() {
   console.log("Deploying contracts with account:", deployer.address);
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  // Deploy XMRT Token
-  const XMRTToken = await ethers.getContractFactory("ERC20");
-  const token = await XMRTToken.deploy("XMRT Token", "XMART", 18);
+  // Deploy XMRT Governance Token
+  const XMRTToken = await ethers.getContractFactory("XMRTToken");
+  const token = await XMRTToken.deploy(
+    deployer.address, deployer.address, deployer.address, deployer.address, deployer.address
+  );
   await token.deployed();
   console.log("XMRT Token deployed to:", token.address);
 
-  // Deploy Governor
+  // Deploy Governor (OpenZeppelin)
   const Governor = await ethers.getContractFactory("Governor");
   const governor = await Governor.deploy(token.address, deployer.address);
   await governor.deployed();
   console.log("Governor deployed to:", governor.address);
+
+  // Update governor address on token
+  await token.setGovernor(governor.address);
+  console.log("Governor linked to token");
 
   // Save deployment addresses
   const fs = require("fs");
@@ -33,7 +39,4 @@ async function main() {
 
 main()
   .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+  .catch((error) => { console.error(error); process.exit(1); });
